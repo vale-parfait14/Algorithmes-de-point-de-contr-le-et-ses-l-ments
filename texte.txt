@@ -1,0 +1,35 @@
+ALGORITHM Phrase 
+VAR
+    ph, voy: STRING
+    lg, nbm, nbv: INTEGER
+    p: CHAR
+BEGIN
+    ph := "je suis une phrase."
+    voy := "aeiouAEIOU"
+    lg := 0
+    nbm := 0
+    nbv := 0
+
+    // Initialiser p avec le premier caractère de la phrase
+    p := ph[1]
+
+    WHILE (p != ".") DO
+        lg := lg + 1
+
+        IF (p IN voy) THEN
+            nbv := nbv + 1
+        END_IF
+        IF (p = " " OR p = ".") THEN
+            nbm := nbm + 1
+        END_IF
+        
+        // Lire le caractère suivant de la phrase
+        p := ph[lg + 1]
+    END_WHILE
+
+    Write(lg)
+    Write(nbm)
+    Write(nbv)
+    Write(ph)
+    Write(voy)
+END
